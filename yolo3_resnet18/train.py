@@ -127,7 +127,7 @@ if __name__ == "__main__":
     model = YoloBody(anchors, num_classes)  # 实例化
     weights_init(model)
 
-    model_path      = "logs/Epoch2-Total_Loss322.5670-Val_Loss127.5157.pth"  # 导入初始权值，目的是更快的训练
+    model_path      = "logs/Epoch16-Total_Loss32.4839-Val_Loss33.5745.pth"  # 导入初始权值，目的是更快的训练
     print('Loading weights into state dict...')
 
     device          = torch.device('cpu')  # if torch.cuda.is_available() else 'cpu')
@@ -169,9 +169,9 @@ if __name__ == "__main__":
     #------------------------------------------------------#
     if True:
         lr              = 1e-3
-        Batch_size      = 10
+        Batch_size      = 5
         Init_Epoch      = 0
-        Freeze_Epoch    = 35
+        Freeze_Epoch    = 20
         
         optimizer       = optim.Adam(net.parameters(),lr)
         lr_scheduler    = optim.lr_scheduler.StepLR(optimizer, step_size=1, gamma=0.92)

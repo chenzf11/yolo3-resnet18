@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+# 读取数据和标签的核心文件
+# 功能：DataLoad读取txt标签，HPsorted对标记点根据y坐标排序，getFrame画框，Datashow调试时用于可视化
+
+
 from skimage import io, color
 import numpy as np
 import re

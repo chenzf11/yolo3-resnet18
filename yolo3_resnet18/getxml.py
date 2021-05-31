@@ -101,5 +101,6 @@ for itm in range(len(x)):
             xml_file.write('\t\t</bndbox>\n')
             xml_file.write('\t</object>\n')
     xml_file.write('</annotation>')
+
 print('GetXml Finished!')
 

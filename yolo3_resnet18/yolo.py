@@ -10,26 +10,15 @@ from nets.yolo3 import YoloBody
 from utils.utils import (DecodeBox, letterbox_image, non_max_suppression,
                          yolo_correct_boxes)
 
-
-# --------------------------------------------#
-#   使用自己训练好的模型预测需要修改2个参数
-#   model_path和classes_path都需要修改！
-#   如果出现shape不匹配，一定要注意
-#   训练时的model_path和classes_path参数的修改
-# --------------------------------------------#
 class YOLO(object):
     _defaults = {
-        "model_path": 'logs/Epoch26-Total_Loss40.8099-Val_Loss21.1160.pth',
+        "model_path": 'logs/Epoch16-Total_Loss32.4839-Val_Loss33.5745.pth',
         "anchors_path": 'model_data/yolo_anchors.txt',
         "classes_path": 'model_data/my_classes.txt',
         "model_image_size": (256, 256, 3),
         "confidence": 0.5,
         "iou": 0.3,
         "cuda": False,
-        # ---------------------------------------------------------------------#
-        #   该变量用于控制是否使用letterbox_image对输入图像进行不失真的resize，
-        #   在多次测试后，发现关闭letterbox_image直接resize的效果更好
-        # ---------------------------------------------------------------------#
         "letterbox_image": False,
     }
 
@@ -210,26 +199,5 @@ class YOLO(object):
             right = min(np.shape(image)[1], np.floor(right + 0.5).astype('int32'))
             predict_rec_list.append([top, bottom, left, right, predicted_class])
 
-            # 画框框
-            '''label = '{} {:.2f}'.format(predicted_class, score)
-            draw = ImageDraw.Draw(image)
-            label_size = draw.textsize(label, font)
-            label = label.encode('utf-8')
-            print(label, top, left, bottom, right)
-
-            if top - label_size[1] >= 0:
-                text_origin = np.array([left, top - label_size[1]])
-            else:
-                text_origin = np.array([left, top + 1])
-
-            for i in range(thickness):
-                draw.rectangle(
-                    [left + i, top + i, right - i, bottom - i],
-                    outline=self.colors[self.class_names.index(predicted_class)], width=1)
-            draw.rectangle(
-                [tuple(text_origin), tuple(text_origin + label_size)],
-                fill=self.colors[self.class_names.index(predicted_class)], width=1)
-            draw.text(text_origin, str(label, 'UTF-8'), fill=(0, 0, 0), font=font)
-            del draw'''
         return image, predict_rec_list
 
