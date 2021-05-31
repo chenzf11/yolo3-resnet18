@@ -97,6 +97,6 @@
 1、Unet网络中的注意力模型结构和参数的修改和优化。在进行总结和问题分析时，小组觉得问题可能出在我们将Unet的输出进行了3次MaxPooling后进行4次卷积，得到注意力模型输出这个过程中。在对注意力模型学习研究后，对注意力模型的结构和参数进行修改和优化预计可以提升定位效果。
 
 #### 参考资料
-1、U-Net: Convolutional Networks for Biomedical Image Segmentation. Olaf Ronneberger, Philipp Fischer, and Thomas Brox
-2、Unet神经网络为什么会在医学图像分割表现好？ - 知乎 (zhihu.com)
-3、https://github.com/bubbliiiing/yolo3-pytorch
+U-Net: Convolutional Networks for Biomedical Image Segmentation. Olaf Ronneberger, Philipp Fischer, and Thomas Brox  
+https://www.zhihu.com/question/269914775?sort=created  
+https://github.com/bubbliiiing/yolo3-pytorch
