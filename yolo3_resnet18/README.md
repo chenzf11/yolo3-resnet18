@@ -92,3 +92,11 @@
 如果想要替换resnet的权值文件，需要将新权值文件放置在Res文件夹下。
 
 特别注意：更改Resnet的权值文件后，需要在test_trainset/test_test/test_final中做相应修改：test_trainset 第113行修改为新的预测锥体的权值， 第114行改为新的预测椎间盘的权值，其余两个文件类似，test_test在110与111行，test_train在113与114行
+
+#### 改进方向
+1、Unet网络中的注意力模型结构和参数的修改和优化。在进行总结和问题分析时，小组觉得问题可能出在我们将Unet的输出进行了3次MaxPooling后进行4次卷积，得到注意力模型输出这个过程中。在对注意力模型学习研究后，对注意力模型的结构和参数进行修改和优化预计可以提升定位效果。
+
+#### 参考资料
+U-Net: Convolutional Networks for Biomedical Image Segmentation. Olaf Ronneberger, Philipp Fischer, and Thomas Brox
+Unet神经网络为什么会在医学图像分割表现好？ - 知乎 (zhihu.com)
+https://github.com/bubbliiiing/yolo3-pytorch
